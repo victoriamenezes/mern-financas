@@ -7,7 +7,7 @@ export const userColumns = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
+          <img className="cellImg" src={params.row.img || "https://cdn.pixabay.com/photo/2021/06/07/13/46/user-6318008_960_720.png" } alt="avatar" />
           {params.row.username}
         </div>
       );
@@ -20,8 +20,18 @@ export const userColumns = [
   },
 
   {
-    field: "age",
-    headerName: "Idade",
+    field: "country",
+    headerName: "País",
+    width: 100,
+  },
+  {
+    field: "city",
+    headerName: "Cidade",
+    width: 100,
+  },
+  {
+    field: "phone",
+    headerName: "Telefone",
     width: 100,
   },
   {

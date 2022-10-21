@@ -2,12 +2,13 @@ import './App.css';
 import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
 import AdminHome from './pages/adminHome/AdminHome';
 import Login from './pages/login/Login';
-import List from './components/table/Table';
+import List from './pages/list/List';
 import SingleItem from './pages/singleItem/SingleItem';
 import NewItem from './pages/newItem/NewItem';
 import { userInputs, transactionInputs } from './formSource';
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
+// import Datatable from './components/datatable/Datatable';
 
 
 
@@ -37,7 +38,7 @@ function App() {
             } exact />
 
 
-              <Route path="/users">
+              <Route path="users">
                 <Route index element={
                   <ProtectedRoute>
                     <List />
