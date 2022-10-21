@@ -32,7 +32,7 @@ const AdminDrawer = () => {
           </li>
         </Link>
         <p className="title">controle</p>
-        <Link to="/usuarios" style={{ textDecoration: "none" }}>
+        <Link to="/users" style={{ textDecoration: "none" }}>
           <li>
             <PersonOutlineIcon className="icon" />
             <span>Usuários</span>

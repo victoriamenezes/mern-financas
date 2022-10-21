@@ -1,6 +1,6 @@
 import "./newTransaction.scss";
-import Sidebar from "../../components/sidebar/Sidebar";
-import Navbar from "../../components/navbar/Navbar";
+import AdminDrawer from "../../components/adminDrawer/AdminDrawer";
+import AdminNavbar from "../../components/adminNavbar/AdminNavbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import { hotelInputs } from "../../formSource";
@@ -58,9 +58,9 @@ const NewTransaction = () => {
   };
   return (
     <div className="new">
-      <Sidebar />
+      <AdminDrawer />
       <div className="newContainer">
-        <Navbar />
+        <AdminNavbar />
         <div className="top">
           <h1>Add New Product</h1>
         </div>

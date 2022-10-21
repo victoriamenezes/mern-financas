@@ -6,6 +6,7 @@ import Login from './pages/login/Login';
 import List from './components/table/Table';
 import SingleItem from './pages/singleItem/SingleItem';
 import NewItem from './pages/newItem/NewItem';
+import { userInputs, transactionInputs } from './formSource';
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
         <Routes>
           <Route path="/">
             <Route index element={<AdminHome />} exact />
-            <Route path="/login" element={<Login />} exact />
+            {/* <Route path="/login" element={<Login />} exact /> */}
+
 
               <Route path="/users">
                 <Route index element={<List />} exact />
