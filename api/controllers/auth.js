@@ -12,6 +12,7 @@ export const register = async (req,res,next) => {
 
     const newUser = new User({
       username: req.body.username,
+      //user
       email: req.body.email,
       password: hash,
     });
@@ -41,7 +42,7 @@ export const login = async (req,res,next) => {
         httpOnly: true,
       })
       .status(200)
-      .json({...otherDetails});
+      .json({otherDetails});
 
   }catch(err){
     next(err);

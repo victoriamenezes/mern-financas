@@ -21,6 +21,7 @@ router.get("/:id", verifyUser, getTransaction);
 
 //GET ALL
 router.get("/", verifyAdmin, getTransactions);
+// router.get("/countByType", getTransactions);
 
 
 
