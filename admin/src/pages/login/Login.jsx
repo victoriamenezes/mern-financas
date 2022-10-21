@@ -44,7 +44,7 @@ const Login = () => {
       } else {
         dispatch({
           type: "LOGIN_FAILURE",
-          payload: { message: "You are not allowed!" },
+          payload: { message: "Você não possui credenciais para acessar esta página." },
         });
       }
     } catch (err) {

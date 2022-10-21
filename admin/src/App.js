@@ -1,40 +1,80 @@
 import './App.css';
-import { BrowserRouter } from 'react-router-dom'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
 import AdminHome from './pages/adminHome/AdminHome';
 import Login from './pages/login/Login';
 import List from './components/table/Table';
 import SingleItem from './pages/singleItem/SingleItem';
 import NewItem from './pages/newItem/NewItem';
 import { userInputs, transactionInputs } from './formSource';
+import { useContext } from 'react';
+import { AuthContext } from './context/AuthContext';
+
 
 
 function App() {
+
+  const ProtectedRoute = ({ children }) => {
+    const { user } = useContext(AuthContext);
+
+    if (!user) {
+      return <Navigate to="/login" />;
+    }
+
+    return children;
+  };
+
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<AdminHome />} exact />
-            {/* <Route path="/login" element={<Login />} exact /> */}
+            <Route path="/login" element={<Login />} exact />
+            <Route index element={
+              <ProtectedRoute>
+                <AdminHome />
+              </ProtectedRoute>
+            } exact />
 
 
               <Route path="/users">
-                <Route index element={<List />} exact />
-                <Route path=":userId" element={<SingleItem />}/>
+                <Route index element={
+                  <ProtectedRoute>
+                    <List />
+                  </ProtectedRoute>
+                } exact />
+                <Route path=":userId" element={
+                  <ProtectedRoute>
+                    <SingleItem />
+                  </ProtectedRoute>
+                }/>
                 <Route
                   path="new"
-                  element={<NewItem inputs={userInputs} tittle= "Adicionar novo usuário." />}
-                />
+                  element={
+                    <ProtectedRoute>
+                      <NewItem inputs={userInputs} tittle= "Adicionar novo usuário." />
+                    </ProtectedRoute>
+                }/>
             </Route>
 
             <Route path="/transactions">
-                <Route index element={<List />} exact />
-                <Route path=":transactionId" element={<SingleItem />}/>
+                <Route index element={
+                  <ProtectedRoute>
+                    <List />
+                  </ProtectedRoute>
+                } exact />
+                <Route path=":transactionId" element={
+                  <ProtectedRoute>
+                    <SingleItem />
+                  </ProtectedRoute>
+                  }/>
                 <Route
                   path="new"
-                  element={<NewItem inputs={transactionInputs} tittle= "Realizar nova transação." />}
-                />
+                  element={
+                <ProtectedRoute>
+                  <NewItem inputs={transactionInputs} tittle= "Realizar nova transação." />
+                </ProtectedRoute>
+                }/>
             </Route>
           </Route>
         </Routes>
