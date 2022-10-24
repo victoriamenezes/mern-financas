@@ -38,10 +38,10 @@ const AdminDrawer = () => {
             <span>Usuários</span>
           </li>
         </Link>
-        <Link to="/serviços" style={{ textDecoration: "none" }}>
+        <Link to="/transactions" style={{ textDecoration: "none" }}>
           <li>
             <StoreIcon className="icon" />
-            <span>Funcionários</span>
+            <span>Transações</span>
           </li>
         </Link>
         <li>

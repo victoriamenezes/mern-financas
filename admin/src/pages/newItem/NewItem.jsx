@@ -20,7 +20,7 @@ const NewItem = ({ inputs, title }) => {
     data.append("upload_preset", "upload");
     try {
       const uploadRes = await axios.post(
-        "https://api.cloudinary.com/v1_1/lamadev/image/upload",
+        "#",
         data
       );
 
@@ -61,7 +61,7 @@ const NewItem = ({ inputs, title }) => {
             <form>
               <div className="formInput">
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Imagem: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"

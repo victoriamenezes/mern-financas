@@ -8,7 +8,7 @@ import NewItem from './pages/newItem/NewItem';
 import { userInputs, transactionInputs } from './formSource';
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
-// import Datatable from './components/datatable/Datatable';
+import { transactionColumns, userColumns } from "./datatablesource";
 
 
 
@@ -37,11 +37,10 @@ function App() {
               </ProtectedRoute>
             } exact />
 
-
               <Route path="users">
                 <Route index element={
                   <ProtectedRoute>
-                    <List />
+                    <List columns={userColumns}/>
                   </ProtectedRoute>
                 } exact />
                 <Route path=":userId" element={
@@ -61,7 +60,7 @@ function App() {
             <Route path="/transactions">
                 <Route index element={
                   <ProtectedRoute>
-                    <List />
+                    <List columns={transactionColumns}/>
                   </ProtectedRoute>
                 } exact />
                 <Route path=":transactionId" element={
